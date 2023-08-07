@@ -5,7 +5,7 @@ export const todoReducer = (todoState = [], action = {}) => {
     }
 
     case 'delete': {
-      throw new Error('action delete is not implemented');
+      return todoState.filter((todo) => todo.id !== action.idToDelete);
     }
 
     case 'toggle': {

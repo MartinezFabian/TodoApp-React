@@ -21,6 +21,13 @@ export const TodoApp = () => {
     });
   };
 
+  const onDeleteTodo = (idToDelete) => {
+    dispatch({
+      type: 'delete',
+      idToDelete: idToDelete,
+    });
+  };
+
   return (
     <>
       <header>
@@ -29,7 +36,10 @@ export const TodoApp = () => {
         <TodoInput onNewTodo={(newTodo) => onAddTodo(newTodo)}></TodoInput>
       </header>
 
-      <TodoList todos={todoState}></TodoList>
+      <TodoList
+        todos={todoState}
+        onDeleteTodoById={(idToDelete) => onDeleteTodo(idToDelete)}
+      ></TodoList>
     </>
   );
 };
