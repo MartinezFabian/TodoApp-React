@@ -1,0 +1,27 @@
+:root {
+  --main-font: 'Lato', sans-serif;
+  --background-color: #23272f;
+  --main--color: #343a46;
+  --white: #dfdfdf;
+}
+
+/* global styles */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  background-color: var(--background-color);
+  color: var(--white);
+}
