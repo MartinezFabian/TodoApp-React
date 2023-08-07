@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import { TodoInput } from './components/TodoInput';
 import { todoReducer } from './todoReducer';
+import { TodoList } from './components/TodoList';
 
 const initialState = [
   {
@@ -18,6 +19,8 @@ export const TodoApp = () => {
       <h1>Todo List</h1>
 
       <TodoInput></TodoInput>
+
+      <TodoList todos={todoState}></TodoList>
     </>
   );
 };
