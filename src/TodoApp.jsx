@@ -14,11 +14,20 @@ const initialState = [
 export const TodoApp = () => {
   const [todoState, dispatch] = useReducer(todoReducer, initialState);
 
+  const onAddTodo = (newTodo) => {
+    dispatch({
+      type: 'add',
+      newTodo: newTodo,
+    });
+  };
+
   return (
     <>
-      <h1>Todo List</h1>
+      <header>
+        <h1>Todo List</h1>
 
-      <TodoInput></TodoInput>
+        <TodoInput onNewTodo={(newTodo) => onAddTodo(newTodo)}></TodoInput>
+      </header>
 
       <TodoList todos={todoState}></TodoList>
     </>

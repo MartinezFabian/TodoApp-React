@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const TodoInput = () => {
+export const TodoInput = ({ onNewTodo }) => {
   const [input, setInput] = useState('');
 
   const onChangeInput = (e) => {
@@ -10,7 +10,15 @@ export const TodoInput = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
 
-    console.log(input);
+    if (input.length < 1) return;
+
+    const newTodo = {
+      id: Date.now(),
+      text: input,
+      done: false,
+    };
+
+    onNewTodo(newTodo);
 
     setInput('');
   };

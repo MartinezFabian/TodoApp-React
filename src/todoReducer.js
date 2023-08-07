@@ -1,7 +1,7 @@
 export const todoReducer = (todoState = [], action = {}) => {
   switch (action.type) {
     case 'add': {
-      throw new Error('action add is not implemented');
+      return [action.newTodo, ...todoState];
     }
 
     case 'delete': {
