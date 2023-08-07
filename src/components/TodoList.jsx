@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
+import { TodoItem } from './TodoItem';
 
 export const TodoList = ({ todos }) => {
   return (
     <main>
       {todos.map((todo) => {
-        return (
-          <article key={todo.id}>
-            <p>{todo.text}</p>
-          </article>
-        );
+        return <TodoItem key={todo.id} todo={todo}></TodoItem>;
       })}
     </main>
   );
