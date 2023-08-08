@@ -28,6 +28,13 @@ export const TodoApp = () => {
     });
   };
 
+  const onEditTodo = (editedTodo) => {
+    dispatch({
+      type: 'edit',
+      editedTodo: editedTodo,
+    });
+  };
+
   return (
     <>
       <header>
@@ -39,6 +46,7 @@ export const TodoApp = () => {
       <TodoList
         todos={todoState}
         onDeleteTodoById={(idToDelete) => onDeleteTodo(idToDelete)}
+        onEditTodo={(editedTodo) => onEditTodo(editedTodo)}
       ></TodoList>
     </>
   );

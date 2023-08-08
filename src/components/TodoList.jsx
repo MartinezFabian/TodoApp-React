@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
 
-export const TodoList = ({ todos, onDeleteTodoById }) => {
+export const TodoList = ({ todos, onDeleteTodoById, onEditTodo }) => {
   return (
     <main>
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} onDeleteTodoById={onDeleteTodoById}></TodoItem>;
+        return (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onDeleteTodoById={onDeleteTodoById}
+            onEditTodo={onEditTodo}
+          ></TodoItem>
+        );
       })}
     </main>
   );
@@ -14,4 +21,5 @@ export const TodoList = ({ todos, onDeleteTodoById }) => {
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
   onDeleteTodoById: PropTypes.func.isRequired,
+  onEditTodo: PropTypes.func.isRequired,
 };

@@ -8,6 +8,16 @@ export const todoReducer = (todoState = [], action = {}) => {
       return todoState.filter((todo) => todo.id !== action.idToDelete);
     }
 
+    case 'edit': {
+      return todoState.map((todo) => {
+        if (todo.id === action.editedTodo.id) {
+          return action.editedTodo;
+        }
+
+        return todo;
+      });
+    }
+
     case 'toggle': {
       throw new Error('action toggle is not implemented');
     }
