@@ -1,0 +1,16 @@
+.app {
+  max-width: 45rem;
+  width: 90%;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.header {
+  width: 100%;
+}
+
+.header__title {
+  text-align: center;
+}

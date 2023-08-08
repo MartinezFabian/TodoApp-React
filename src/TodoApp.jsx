@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import { TodoInput } from './components/TodoInput';
 import { todoReducer } from './todoReducer';
 import { TodoList } from './components/TodoList';
+import styles from './TodoApp.module.css';
 
 const initialState = [
   {
@@ -36,9 +37,9 @@ export const TodoApp = () => {
   };
 
   return (
-    <>
-      <header>
-        <h1>Todo List</h1>
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <h1 className={styles.header__title}>Todo List</h1>
 
         <TodoInput onNewTodo={(newTodo) => onAddTodo(newTodo)}></TodoInput>
       </header>
@@ -48,6 +49,6 @@ export const TodoApp = () => {
         onDeleteTodoById={(idToDelete) => onDeleteTodo(idToDelete)}
         onEditTodo={(editedTodo) => onEditTodo(editedTodo)}
       ></TodoList>
-    </>
+    </div>
   );
 };
