@@ -1,7 +1,8 @@
 :root {
   --main-font: 'Lato', sans-serif;
   --background-color: #23272f;
-  --main--color: #343a46;
+  --item-color: #343a46;
+  --main-color: #1d4b5b;
   --white: #dfdfdf;
 }
 

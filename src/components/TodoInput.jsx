@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from './TodoInput.module.css';
 
 export const TodoInput = ({ onNewTodo }) => {
   const [input, setInput] = useState('');
@@ -25,9 +26,17 @@ export const TodoInput = ({ onNewTodo }) => {
   };
 
   return (
-    <form onSubmit={onSubmitForm}>
-      <input onChange={onChangeInput} value={input} type="text" />
-      <button type="submit">Add</button>
+    <form onSubmit={onSubmitForm} className={styles.form}>
+      <input
+        onChange={onChangeInput}
+        value={input}
+        type="text"
+        className={styles.form__input}
+        placeholder="write a task..."
+      />
+      <button type="submit" className={styles.form__btn}>
+        Add
+      </button>
     </form>
   );
 };

@@ -1,0 +1,27 @@
+.form {
+  width: 100%;
+  display: flex;
+}
+
+.form__input {
+  flex: 2;
+  padding: 1.4rem;
+  border-radius: 1rem 0 0 1rem;
+  border-style: none;
+  background-color: var(--item-color);
+  color: var(--white);
+}
+
+.form__btn {
+  flex: 0.6;
+  border-radius: 0 1rem 1rem 0;
+  border-style: none;
+  background-color: var(--main-color);
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form__btn:hover {
+  cursor: pointer;
+}
