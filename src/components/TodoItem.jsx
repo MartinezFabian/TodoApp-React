@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import styles from './TodoItem.module.css';
 
 export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo }) => {
   const [editMode, setEditMode] = useState(false);
@@ -27,26 +28,47 @@ export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo }) => {
   };
 
   return (
-    <article>
-      <input type="checkbox" />
+    <article className={styles.item}>
+      <input type="checkbox" className={styles.item__checkbox} />
 
       {editMode ? (
-        <input type="text" value={editInput} onChange={onChangeEditInput} />
+        <input
+          type="text"
+          value={editInput}
+          onChange={onChangeEditInput}
+          className={styles.item__input}
+        />
       ) : (
-        <p>{todo.text}</p>
+        <p className={styles.item__text}>{todo.text}</p>
       )}
 
-      {editMode ? (
-        <button onClick={onSaveEdit}>Save</button>
-      ) : (
-        <button onClick={onToggleEditMode}>Edit</button>
-      )}
+      <div className={styles.item__buttons}>
+        {editMode ? (
+          <button onClick={onSaveEdit} className={styles.item__btn}>
+            Save
+          </button>
+        ) : (
+          <button onClick={onToggleEditMode} className={styles.item__btn}>
+            Edit
+          </button>
+        )}
 
-      {editMode ? (
-        <button onClick={onToggleEditMode}>Cancel</button>
-      ) : (
-        <button onClick={() => onDeleteTodoById(todo.id)}>Delete</button>
-      )}
+        {editMode ? (
+          <button
+            onClick={onToggleEditMode}
+            className={`${styles.item__btn} ${styles['item__btn--red']}`}
+          >
+            Cancel
+          </button>
+        ) : (
+          <button
+            onClick={() => onDeleteTodoById(todo.id)}
+            className={`${styles.item__btn} ${styles['item__btn--red']}`}
+          >
+            Delete
+          </button>
+        )}
+      </div>
     </article>
   );
 };
