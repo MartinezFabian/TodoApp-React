@@ -2,7 +2,7 @@
   background-color: var(--item-color);
   display: flex;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0.5rem;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
@@ -43,7 +43,7 @@
 }
 
 .item__buttons {
-  flex: 2;
+  flex: 1;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -53,13 +53,14 @@
 
 .item__btn {
   max-width: 100%;
-  width: 100%;
+  width: 5rem;
   height: 3rem;
   border-style: none;
   background-color: var(--main-color);
   color: var(--white);
   font-weight: 700;
   border-radius: 0.5rem;
+  font-size: 1.1rem;
 }
 
 .item__btn--red {

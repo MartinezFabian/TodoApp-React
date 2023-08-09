@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
+import styles from './TodoList.module.css';
 
 export const TodoList = ({ todos, onDeleteTodoById, onEditTodo }) => {
   return (
-    <main>
+    <main className={styles['items-flex']}>
       {todos.map((todo) => {
         return (
           <TodoItem
