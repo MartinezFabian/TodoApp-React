@@ -31,7 +31,8 @@ export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo, onToggleDone }) =
     <article className={styles.item}>
       <input
         type="checkbox"
-        onClick={() => onToggleDone(todo.id)}
+        checked={todo.done}
+        onChange={() => onToggleDone(todo.id)}
         className={styles.item__checkbox}
       />
 
