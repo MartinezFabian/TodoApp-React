@@ -18,8 +18,17 @@ export const todoReducer = (todoState = [], action = {}) => {
       });
     }
 
-    case 'toggle': {
-      throw new Error('action toggle is not implemented');
+    case 'toggleDone': {
+      return todoState.map((todo) => {
+        if (todo.id === action.id) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        }
+
+        return todo;
+      });
     }
 
     default: {

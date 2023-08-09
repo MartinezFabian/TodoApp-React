@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './TodoItem.module.css';
 
-export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo }) => {
+export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo, onToggleDone }) => {
   const [editMode, setEditMode] = useState(false);
   const [editInput, setEditInput] = useState(todo.text);
 
@@ -29,7 +29,11 @@ export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo }) => {
 
   return (
     <article className={styles.item}>
-      <input type="checkbox" className={styles.item__checkbox} />
+      <input
+        type="checkbox"
+        onClick={() => onToggleDone(todo.id)}
+        className={styles.item__checkbox}
+      />
 
       {editMode ? (
         <input
@@ -39,7 +43,13 @@ export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo }) => {
           className={styles.item__input}
         />
       ) : (
-        <p className={styles.item__text}>{todo.text}</p>
+        <p
+          className={
+            todo.done ? `${styles.item__text} ${styles['item__text--done']}` : styles.item__text
+          }
+        >
+          {todo.text}
+        </p>
       )}
 
       <div className={styles.item__buttons}>
@@ -77,4 +87,5 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   onDeleteTodoById: PropTypes.func.isRequired,
   onEditTodo: PropTypes.func.isRequired,
+  onToggleDone: PropTypes.func.isRequired,
 };

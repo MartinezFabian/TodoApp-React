@@ -4,13 +4,7 @@ import { todoReducer } from './todoReducer';
 import { TodoList } from './components/TodoList';
 import styles from './TodoApp.module.css';
 
-const initialState = [
-  {
-    id: Date.now(),
-    text: 'Estudiar React',
-    done: false,
-  },
-];
+const initialState = [];
 
 export const TodoApp = () => {
   const [todoState, dispatch] = useReducer(todoReducer, initialState);
@@ -36,6 +30,13 @@ export const TodoApp = () => {
     });
   };
 
+  const onToggleDone = (id) => {
+    dispatch({
+      type: 'toggleDone',
+      id: id,
+    });
+  };
+
   return (
     <div className={styles.app}>
       <header className={styles.header}>
@@ -48,6 +49,7 @@ export const TodoApp = () => {
         todos={todoState}
         onDeleteTodoById={(idToDelete) => onDeleteTodo(idToDelete)}
         onEditTodo={(editedTodo) => onEditTodo(editedTodo)}
+        onToggleDone={(id) => onToggleDone(id)}
       ></TodoList>
     </div>
   );

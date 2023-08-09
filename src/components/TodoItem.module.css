@@ -27,6 +27,10 @@
   font-size: 1.4rem;
 }
 
+.item__text--done {
+  text-decoration: line-through;
+}
+
 .item__input {
   width: 100%;
   max-width: 100%;
