@@ -4,12 +4,22 @@ import styles from './TodoApp.module.css';
 import { useTodo } from './hooks/useTodo';
 
 export const TodoApp = () => {
-  const { todoState, onAddTodo, onDeleteTodo, onEditTodo, onToggleDone } = useTodo();
+  const {
+    todoState,
+    onAddTodo,
+    onDeleteTodo,
+    onEditTodo,
+    onToggleDone,
+    todosCount,
+    pendingTodosCount,
+  } = useTodo();
 
   return (
     <div className={styles.app}>
       <header className={styles.header}>
-        <h1 className={styles.header__title}>Todo List</h1>
+        <h1 className={styles.header__title}>
+          Tasks: {todosCount} - Pending: {pendingTodosCount}
+        </h1>
 
         <TodoInput onNewTodo={(newTodo) => onAddTodo(newTodo)}></TodoInput>
       </header>

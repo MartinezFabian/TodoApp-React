@@ -46,5 +46,7 @@ export const useTodo = () => {
     onDeleteTodo: onDeleteTodo,
     onEditTodo: onEditTodo,
     onToggleDone: onToggleDone,
+    todosCount: todoState.length,
+    pendingTodosCount: todoState.filter((todo) => todo.done === false).length,
   };
 };
