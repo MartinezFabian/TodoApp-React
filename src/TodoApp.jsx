@@ -1,49 +1,10 @@
-import { useEffect, useReducer } from 'react';
 import { TodoInput } from './components/TodoInput';
-import { todoReducer } from './todoReducer';
 import { TodoList } from './components/TodoList';
 import styles from './TodoApp.module.css';
-
-const initialState = [];
-
-const init = () => {
-  return JSON.parse(localStorage.getItem('todos')) ?? [];
-};
+import { useTodo } from './hooks/useTodo';
 
 export const TodoApp = () => {
-  const [todoState, dispatch] = useReducer(todoReducer, initialState, init);
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todoState));
-  }, [todoState]);
-
-  const onAddTodo = (newTodo) => {
-    dispatch({
-      type: 'add',
-      newTodo: newTodo,
-    });
-  };
-
-  const onDeleteTodo = (idToDelete) => {
-    dispatch({
-      type: 'delete',
-      idToDelete: idToDelete,
-    });
-  };
-
-  const onEditTodo = (editedTodo) => {
-    dispatch({
-      type: 'edit',
-      editedTodo: editedTodo,
-    });
-  };
-
-  const onToggleDone = (id) => {
-    dispatch({
-      type: 'toggleDone',
-      id: id,
-    });
-  };
+  const { todoState, onAddTodo, onDeleteTodo, onEditTodo, onToggleDone } = useTodo();
 
   return (
     <div className={styles.app}>
