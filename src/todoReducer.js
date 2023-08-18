@@ -32,7 +32,7 @@ export const todoReducer = (todoState = [], action = {}) => {
     }
 
     default: {
-      throw new Error(`Unknown action: ${action.type}`);
+      return todoState;
     }
   }
 };
