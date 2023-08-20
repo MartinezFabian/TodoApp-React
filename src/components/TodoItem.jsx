@@ -75,6 +75,7 @@ export const TodoItem = ({ todo, onDeleteTodoById, onEditTodo, onToggleDone }) =
           <button
             onClick={() => onDeleteTodoById(todo.id)}
             className={`${styles.item__btn} ${styles['item__btn--red']}`}
+            aria-label="btn-delete"
           >
             Delete
           </button>
